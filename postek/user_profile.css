@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+        
+            body{
+                box-sizing:border-box;
+                font-family: 'Poppins', sans-serif;
+                padding:0;
+                margin:0;
+                background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            }
+            .form-container h1{
+                text-align:center;
+                font-family: 'Poppins', sans-serif;
+            }
+            .nav-bar{
+                background:#292929;
+                height:50px;
+                width:100%;
+                display:flex;
+                align-items:center;
+            }
+            .nav-bar ul{
+                font-size:15px;
+                color:white;
+                list-style: none;
+                display:flex;
+                justify-content:space-around;
+                width:100%;
+            }
+            .nav-bar ul li{
+                padding:5px;
+            }
+            a{
+                text-decoration:none;
+                color:white;
+            }
+            
+            .fas, .fa{
+                color:red;
+            }
+            
+            .friends, .logout{
+                border-radius: 4px;
+                background: linear-gradient(145deg, #252525, #2c2c2c);
+                box-shadow:  5px 5px 8px #202020,
+                            -5px -5px 8px #323232;
+                width:90px;
+                text-align:center;
+            }
+            
+            .friends{
+                margin-left:35%;
+            }
+            
+            .friends:hover, .logout:hover{
+                background: #292929;
+                box-shadow: inset 5px 5px 8px #202020,
+                            inset -5px -5px 8px #323232;
+            }
+            
+            .updates{
+                display:flex;
+                justify-content:center;
+                margin-top:10px;
+            }
+            
+            .friend_updates, .post_update{
+                width:50%;
+            }
+            .post_update{
+                height:340px;
+            }
+            
+            .friend_updates{
+                height:520px;
+                overflow-y:scroll;
+                overflow-x:hidden;
+            }
+            
+            .friend_updates>*{
+                margin-left:30px;
+            }
+            
+            .tweets {
+                width: 90%;
+                border-radius: 20px;
+                padding:12px;
+                background: #efeded;
+                box-shadow:  8px 8px 12px #c4c4c490,
+                            -8px -8px 12px #fafafa;
+            }
+
+            .post_update{
+                display:grid;
+                justify-content:center;
+            }
+            
+            .inputs{
+                display:grid;
+                row-gap:15px;
+            }
+            
+            .inputs textarea{
+                width:280px;
+                height:100px;
+                resize: none;
+                border:none;
+                outline:none;
+                
+                border-radius: 4px;
+                background: linear-gradient(145deg, #e6e6e6, #ffffff);
+                box-shadow:  5px 5px 13px #dbdbdb,
+                            -5px -5px 13px #ffffff;
+            }
+            
+            .inputs textarea:hover{
+                background: linear-gradient(315deg, #cfcfcf, #f6f6f6);
+                box-shadow:  -5px -5px 10px #cacaca,
+                              5px 5px 10px #ffffff;
+            }
+            
+            
+            .inputs button{
+                height:30px;
+                width:100px;
+                outline:none;
+                border:none;
+                margin-left:auto;
+                
+                border-radius: 4px;
+                background: linear-gradient(145deg, #e6e6e6, #ffffff);
+                box-shadow:  5px 5px 8px #dbdbdb,
+                            -5px -5px 8px #ffffff;
+            }
+            
+            .inputs button:active{
+                background: linear-gradient(315deg, #cfcfcf, #f6f6f6);
+                box-shadow:  -5px -5px 10px #cacaca,
+                              5px 5px 10px #ffffff;
+            }
+            
+            .friend_updates::-webkit-scrollbar-thumb {
+                background-color:transparent;
+                border-radius: 10px;
+            }
+            
+            .friend_updates::-webkit-scrollbar-track {
+                background-color:transparent;
+            }
+            
+            .friend_updates::-webkit-scrollbar {
+                width: 8px;
+            }
+            .friend_updates:hover::-webkit-scrollbar-thumb {
+                background-color: #7f7f7f;
+            }
+            .friend_updates:hover::-webkit-scrollbar-track {
+                background-color: #ededed;
+            }
+            
+            
+
+            @media screen and (max-width: 700px) {
+                .nav-bar{
+                    height:140px;
+                }
+                .nav-bar ul{
+                    display:grid;
+                    row-gap:10px;
+                    text-align:center;
+                    padding:0;
+                    
+                }
+                .friends{
+                    margin-left:0;
+                }
+                .updates{
+                    display:grid;
+                    row-gap:20px;
+                }
+                .updates div{
+                    width:100%;
+                    margin:0;
+                    padding:0;
+                }
+                .update_lists>*{
+                    margin-left:15px;
+                }
+            }

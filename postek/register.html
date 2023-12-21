@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/solid.min.css" rel="stylesheet">
+
+    <title>Register</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-head">Register</h1>
+        <div class="error" id="error"></div>
+        
+        <form method="POST" action="register.php" id="signup-form">
+            <div class="form-group">
+                <label for="name">Username:</label>
+                <input type="text" id="name" name="name" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" autocomplete="off">
+            </div>
+            
+            <div class="form-group">
+                <label for="pass">Password:</label>
+                <input type="password" id="pass" name="pass" autocomplete="off">
+            </div>
+            
+            <div class="form-group">
+                <label for="cpass">Confirm Password:</label>
+                <input type="password" id="cpass" name="cpass" autocomplete="off">
+            </div>
+            
+            <div class="btn-container">
+                <button class="register" name="register" id="register">Register</button>
+            </div>
+            
+        </form>
+        <div class="link-container">
+            <a href="index.html" class="link" title="Already registered, Then click here to Login">Already registered ?</a>
+        </div>
+    </div>
+
+<script>
+
+
+    $(document).ready(function() {
+        $("#signup-form").submit(function(e) {
+            e.preventDefault();
+
+            const name = $("#name").val();
+            const email = $("#email").val();
+            const pass = $("#pass").val();
+            const cpass = $("#cpass").val();
+            const hasNumber = /\d/.test(pass);
+            const hasCharacter = /[a-zA-Z]/.test(pass);
+            const isLengthValid = pass.length >= 6;
+            
+    
+            // Validate inputs
+            if (name.trim() === "" || email.trim() === "" || pass.trim() === "" || cpass.trim() === "") {
+                showError("All fields are required.");
+                return;
+            }
+
+            if (!/^[A-Za-z\s]+$/.test(name)) {
+                showError("Invalid name. Use letters and spaces only.");
+                return;
+            }
+
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                showError("Invalid email address.");
+                return;
+            }
+
+
+            //password validation
+            if(!(pass === cpass)){
+                showError("Password should match.")
+            }
+            if (!(pass === cpass)) {
+                showError("Password should match.");
+                return;
+            } else if (!isLengthValid) {
+                showError("Password should be at least 6 characters long.");
+                return;
+            } else if (!hasNumber || !hasCharacter) {
+                showError("Password should contain both numbers and characters.");
+                return;
+            }
+            
+            
+
+
+            this.submit();
+        });
+
+        function showError(message) {
+            $("#error").html('<p><i class="fa fa-warning"></i>  ' + message + '</p>');
+            $("#error").css({
+                "display": "flex",
+                "align-items": "center",
+                "justify-content": "center",
+                "background-color": "#000",
+                "color": "white",
+                "width": "420px",
+                "padding": "1px",
+                "margin-left": "10%",
+                "border-radius": "25px",
+                "font-size":"12px"
+            });
+        }
+    });
+
+</script>
+
+</body>
+</html>

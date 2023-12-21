@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/solid.min.css" rel="stylesheet">
+
+    <title>Login</title>
+
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-head">Login</h1>
+        <div class="error" id="error"></div>
+        
+        <form method="POST" action="index.php" id="login-form" autocomplete="off">
+            <div class="form-group">
+                <label for="login-username">Email:</label>
+                <input type="email" id="login-username" name="login-username" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="login-password" autocomplete="off">
+            </div>
+            <div class="btn-container">
+                <button class="log" name="log">Login</button>
+            </div>
+        </form>
+        <div class="link-container">
+            <a href="register.html" class="link" title="Not Registered Yet, Then click here to Register">Not Registered ?</a>
+        </div>
+    </div>
+
+<script>
+
+    $(document).ready(function() {
+        
+        $("#login-form").submit(function(e) {
+            e.preventDefault();
+
+            var username = $("#login-username").val();
+            var password = $("#login-password").val();
+            
+            if (username.trim() === "" || password.trim() === "") {
+                showError("All fields are required.");
+                return;
+            }
+
+            this.submit();
+        });
+
+        function showError(message) {
+            $("#error").html('<p><i class="fa fa-warning"></i>  ' + message + '</p>');
+            $("#error").css({
+                "display": "flex",
+                "align-items": "center",
+                "justify-content": "center",
+                "background-color": "#000",
+                "color": "white",
+                "width": "420px",
+                "padding": "1px",
+                "margin-left": "10%",
+                "border-radius": "25px",
+                "font-size":"12px",
+                "margin-bottom":"20px"
+            });
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
