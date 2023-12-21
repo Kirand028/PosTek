@@ -2,10 +2,10 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     
-    $servername = "sql112.infinityfree.com";
-    $username = "if0_35222739";
-    $password = "orhd0KabLU";
-    $dbname = "if0_35222739_ktechy";
+    $servername = "YourServerName";
+    $username = "YourUserName";
+    $password = "YourPassword";
+    $dbname = "YourDbName";
     
     $conn = new mysqli($servername, $username, $password, $dbname);
     
